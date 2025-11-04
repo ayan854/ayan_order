@@ -2,484 +2,1294 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FoodieHub | Order Your Favorite Food</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!DOCTYPE html>
+    <html lang="en">
 
-</head>
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
-</head>
-
-<script src="your_script.js"></script>
-
-<body>
-    <!--nav section-->
-
-    <nav class="navbar-wrapper">
-        <nav class="navbar">
-            <a href="#" class="nav-logo">
-                <btn-nav id="navigateButton" onclick="sign()">Sign in</btn-nav>
-
-            </a>
-
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#" class="nav-link" id="home" onclick="home()">Home🍔</a>
-                </li>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Foodie's Haven 🍕</title>
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
 
 
-                <li class="nav-item">
-                    <a href="#" class="nav-link" id="aboutus" onclick="about()">About Us🍟</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link" id="menu" onclick="menu()">Menu🍽</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link" id="food_galary" onclick="gal()">Gallary🥗</a>
-                </li>
-                <li class=" nav-item ">
-                    <a href="# " class="nav-link " id="contact" onclick="contact()">Contact us☎️</a>
-                </li>
-            </ul>
+
+        <style>
+            /* ===== BASE STYLES ===== */
+            
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: "Poppins", sans-serif;
+            }
+            
+            body {
+                background: #f45e08;
+                color: #333;
+                overflow-x: hidden;
+            }
+            
+            #navigateButton {
+                padding: 20px;
+                background-color: #7aa6e3;
+                border-radius: 10px;
+                font-size: larger;
+                color: rgb(1, 1, 26);
+                font-weight: 700;
+                transition: 0.3s ease;
+            }
+            
+            #navigateButton:hover {
+                background-color: #f3961c;
+            }
+            
+            .navbar {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: #222;
+                padding: 40px 30px;
+                color: white;
+            }
+            
+            .nav-menu {
+                list-style: none;
+                display: flex;
+                margin: 0;
+                padding: 0;
+                gap: 25px;
+            }
+            /* ===== Responsive (Mobile) ===== */
+            
+            @media (max-width: 768px) {
+                .navbar {
+                    flex-wrap: wrap;
+                }
+                .nav-menu {
+                    flex-direction: column;
+                    width: 100%;
+                    text-align: center;
+                    margin-top: 10px;
+                }
+                .nav-menu .nav-item {
+                    margin: 8px 0;
+                }
+            }
+            
+             :root {
+                --white-color: #fff;
+                --dark-color: #252525;
+                --primary-color: #3b141c;
+                --secondary-color: #f3961c;
+            }
+            
+            .navbar .nav-logo .logo-text {
+                color: var(--white-color);
+            }
+            
+            header .navbar {
+                display: flex;
+                padding: 20px;
+                align-items: center;
+                justify-content: space-between;
+            }
+            
+            .navbar .nav-menu {
+                display: flex;
+                gap: 20px;
+            }
+            
+            .navbar .nav-menu .nav-link {
+                padding: 10px 18px;
+                color: var(--white-color);
+                /*  background-color: var(--secondary-color);*/
+                border-radius: 20px;
+                transition: 0.3s ease;
+            }
+            
+            .navbar .nav-menu .nav-link:hover {
+                color: var(--primary-color);
+                background-color: var(--secondary-color);
+            }
+            /* ===== HEADER ===== */
+            
+            header {
+                background: transparent;
+                color: #fff;
+                text-align: center;
+                padding: 15px;
+                font-size: 1.6rem;
+            }
+            /* ===== NAVIGATION ===== */
+            
+            nav {
+                display: flex;
+                justify-content: space-around;
+                background: #333;
+                flex-wrap: wrap;
+            }
+            
+            nav button,
+            nav a {
+                background: none;
+                color: white;
+                border: none;
+                padding: 12px 20px;
+                font-size: 1rem;
+                cursor: pointer;
+                text-decoration: none;
+            }
+            
+            nav button:hover,
+            nav a:hover {
+                background: #555;
+            }
+            /* ===== MENU SECTION ===== */
+            
+            #menuSection {
+                background: transparent;
+                padding: 30px 20px;
+                text-align: center;
+            }
+            
+            #menuSection h2 {
+                color: #151514;
+                font-size: 30px;
+                margin-bottom: 15px;
+            }
+            
+            .menu-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .menu-item {
+                animation: bb 0.3s ease 0s infinite alternate-reverse;
+            }
+            
+            @keyframes bb {
+                0% {
+                    bottom: 0px;
+                    transform: translateY(0%);
+                    border-radius: 4px;
+                }
+                100% {
+                    bottom: 50px;
+                    transform: translatey(-3%);
+                    border-radius: 50px;
+                }
+            }
+            
+            .menu-item:hover {
+                background-color: #38bdf8;
+                position: relative;
+                backdrop-filter: var(--primary-color);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .menu-item {
+                background: #fff;
+                border-radius: 10px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                width: 230px;
+                padding: 15px;
+                text-align: center;
+                transition: transform 0.3s;
+                animation: jump duration timing-function delay iteration-count direction fill-mode;
+            }
+            
+            .menu-item:hover {
+                transform: scale(1.03);
+            }
+            
+            .menu-item img {
+                width: 100%;
+                height: 150px;
+                border-radius: 8px;
+                object-fit: cover;
+            }
+            
+            .menu-item h3 {
+                margin: 10px 0;
+            }
+            
+            .menu-item p {
+                color: #666;
+                font-size: 0.9rem;
+            }
+            
+            .menu-item button {
+                margin-top: 10px;
+                background: #ff5722;
+                border: none;
+                color: white;
+                padding: 10px 15px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 0.9rem;
+                transition: 0.3s;
+            }
+            
+            .menu-item button:hover {
+                background: #e64a19;
+            }
+            /* ===== TESTIMONIAL SLIDER ===== */
+            
+            .testimonial-section {
+                background: #fff;
+                padding: 30px 15px;
+                text-align: center;
+            }
+            
+            .testimonial-section h2 {
+                color: #180c0c;
+                font-size: larger;
+                margin-bottom: 15px;
+            }
+            
+            .testimonial-box-wrapper {
+                position: relative;
+                max-width: 700px;
+                margin: 0 auto;
+                overflow: hidden;
+            }
+            
+            .testimonial-box {
+                display: none;
+                background: #f9f9f9;
+                padding: 20px;
+                border-radius: 10px;
+                transition: opacity 0.5s;
+            }
+            
+            .testimonial-box.active {
+                display: block;
+            }
+            
+            .arrow {
+                position: absolute;
+                top: 50%;
+                font-size: 2rem;
+                color: #ff5722;
+                cursor: pointer;
+                transform: translateY(-50%);
+            }
+            
+            .arrow.prev {
+                left: 10px;
+            }
+            
+            .arrow.next {
+                right: 10px;
+            }
+            /* ===== CART ===== */
+            
+            #cart {
+                position: fixed;
+                bottom: 0;
+                right: 0;
+                width: 280px;
+                max-height: 70vh;
+                background: #fff;
+                box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+                transform: translateY(100%);
+                transition: transform 0.3s;
+                overflow-y: auto;
+                border-top-left-radius: 10px;
+                z-index: 999;
+                padding: 20px;
+            }
+            
+            #cart.active {
+                transform: translateY(0);
+            }
+            
+            #cart:hover {
+                transform: rotate(360deg);
+            }
+            
+            #cart h3 {
+                background: #dab017;
+                color: #dc1515;
+                padding: 10px;
+                text-align: center;
+            }
+            
+            .cart-item {
+                display: flex;
+                justify-content: space-between;
+                padding: 30px;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .cart-actions button {
+                background: none;
+                border: none;
+                cursor: pointer;
+                font-size: 1rem;
+            }
+            
+            #total {
+                text-align: center;
+                font-weight: bold;
+                padding: 10px;
+            }
+            
+            #toggleCart {
+                position: fixed;
+                bottom: 10px;
+                right: 10px;
+                background: #6d0a86;
+                color: rgb(240, 20, 67);
+                font-size: 20px;
+                border: none;
+                padding: 20px;
+                border-radius: 25px;
+                cursor: pointer;
+                z-index: 1000;
+            }
+            /* ===== RESPONSIVE ===== */
+            
+            @media (max-width: 768px) {
+                nav button,
+                nav a {
+                    flex: 1 1 45%;
+                    margin: 3px;
+                }
+                .menu-item {
+                    width: 45%;
+                }
+            }
+            
+            @media (max-width: 480px) {
+                .menu-item {
+                    width: 90%;
+                }
+            }
+            /*slider*/
+            
+            .slider {
+                position: relative;
+                max-width: 1100px;
+                margin: 60px auto;
+                overflow: hidden;
+                border-radius: 12px;
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+                background: transparent;
+            }
+            
+            .slides {
+                position: relative;
+                width: 100%;
+                height: 100%;
+            }
+            
+            .slide {
+                display: none;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 20px;
+                animation: fadeIn 0.8s ease-in-out;
+            }
+            
+            .slide.active {
+                display: flex;
+            }
+            
+            .slide video {
+                width: 70%;
+                max-height: 350px;
+                border-radius: 12px;
+                object-fit: cover;
+                margin-bottom: 20px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            }
+            
+            .slide .desc h2 {
+                color: #dd740b;
+                font-size: 28px;
+                margin-bottom: 8px;
+                letter-spacing: 1px;
+            }
+            
+            .slide .desc p {
+                color: rgb(93, 163, 224);
+                font-size: 26px;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            /* Navigation Dots */
+            
+            .nav {
+                text-align: center;
+                margin-top: 15px;
+            }
+            
+            .dot {
+                display: inline-block;
+                width: 14px;
+                height: 14px;
+                margin: 0 6px;
+                background: #bbb;
+                border-radius: 50%;
+                cursor: pointer;
+                transition: all 0.4s ease;
+            }
+            
+            .dot.active {
+                background: #090909;
+                transform: scale(1.2);
+                box-shadow: 0 0 10px #e56f08;
+            }
+            /* Animation */
+            
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(15px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            /*testimonials*/
+            /* ===== Testimonial Section Styling ===== */
+            
+            .testimonial {
+                background: transparent;
+                padding: 80px 0;
+                text-align: center;
+                font-family: "Poppins", sans-serif;
+            }
+            
+            .container-testimonial {
+                max-width: 900px;
+                margin: 0 auto;
+                position: relative;
+            }
+            
+            .testimonial-heading h2 {
+                font-size: 32px;
+                margin-bottom: 10px;
+            }
+            
+            .testimonial-heading p {
+                font-size: 16px;
+                color: #555;
+                margin-bottom: 50px;
+            }
+            /* ===== Testimonial Box ===== */
+            
+            .testimonial-box-wrapper {
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .testimonial-box {
+                display: none;
+                background: #fff;
+                border-radius: 12px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                padding: 30px;
+                text-align: left;
+                animation: fadeIn 0.8s ease-in-out;
+            }
+            
+            .testimonial-box.active {
+                display: block;
+            }
+            /* Reviewer Info */
+            
+            .reviewer-info {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                margin-bottom: 15px;
+            }
+            
+            .reviewer-info img {
+                width: 70px;
+                height: 70px;
+                object-fit: contain;
+                border-radius: 50%;
+                border: 3px solid #e56f08;
+            }
+            
+            .reviewer-info h4 {
+                margin: 0;
+                font-size: 18px;
+                color: #333;
+            }
+            
+            .reviewer-info p {
+                margin: 3px 0 0;
+                color: #888;
+                font-size: 14px;
+            }
+            /* Rating Stars */
+            
+            .rating {
+                list-style: none;
+                display: flex;
+                gap: 5px;
+                color: #e56f08;
+                padding: 0;
+                margin-bottom: 10px;
+            }
+            /* Review Text */
+            
+            .revie {
+                font-size: 16px;
+                color: #444;
+                line-height: 1.5;
+                font-style: italic;
+            }
+            /* Arrows */
+            
+            .arrow-wrapper {
+                display: flex;
+                justify-content: space-around;
+                width: 100%;
+                transform: translateY(-50%);
+                pointer-events: none;
+            }
+            
+            .arrow {
+                background: #f125e3;
+                color: rgb(29, 27, 27);
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                pointer-events: auto;
+                transition: 0.3s;
+            }
+            
+            .arrow:hover {
+                background: rgb(66, 17, 66);
+                transform: scale(1.5);
+            }
+            /* Fade Animation */
+            
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            /* Testimonial active state */
+            /* Footer Styling */
+            
+            footer {
+                background-color: #1a1a1a;
+                /* Dark background */
+                color: #fff;
+                /* White text */
+                align-items: flex-start;
+                justify-content: space-between;
+                padding: 20px 0;
+                font-family: 'Arial', sans-serif;
+            }
+            
+            footer a {
+                color: #fff;
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+            
+            footer a:hover {
+                color: #ff6b6b;
+                /* Highlight color on hover */
+            }
+            
+            footer>div {
+                flex: 1;
+                /* Each section takes equal width */
+                margin: 0 10px;
+                /* Small spacing between sections */
+            }
+            
+            footer .resources,
+            footer .services {
+                max-width: 25%;
+                /* Right side sections smaller */
+            }
+            
+            footer h3 {
+                color: #57f5d7;
+                margin-bottom: 10px;
+            }
+            
+            footer ul {
+                list-style: none;
+                padding: 0;
+            }
+            
+            footer ul li {
+                margin-bottom: 10px;
+                font-weight: bold;
+                color: #ddd;
+            }
+            /* Footer container and flex wrapper */
+            
+            .footer-content-wrapper {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 40px;
+                flex-wrap: wrap;
+                /* For responsiveness */
+            }
+            /* Boxes */
+            
+            .box {
+                /* flex: 1 1 250px;
+             Flex-grow, flex-shrink, flex-basis */
+                min-width: 200px;
+                flex: 1;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+            
+            .box h5 {
+                font-size: 18px;
+                color: #ff6b6b;
+                /* Heading color */
+            }
+            
+            .box p {
+                font-size: 14px;
+                line-height: 1.6;
+                color: #ccc;
+            }
+            /* Social Icons */
+            
+            .social-icon {
+                list-style: none;
+                padding: 0;
+                margin-top: 15px;
+                display: flex;
+                gap: 15px;
+            }
+            
+            .social-icon li a {
+                font-size: 18px;
+                color: #fff;
+            }
+            
+            .social-icon li a:hover {
+                color: #ff6b6b;
+            }
+            /* Resource & Services Lists */
+            
+            .resource-list,
+            .services-list {
+                list-style: none;
+                padding: 0;
+            }
+            
+            .resource-list li,
+            .services-list li {
+                margin-bottom: 10px;
+            }
+            
+            .resource-list li a,
+            .services-list li a {
+                font-size: 14px;
+                color: #ccc;
+                transition: color 0.3s ease;
+            }
+            
+            .resource-list li a:hover,
+            .services-list li a:hover {
+                color: #ff6b6b;
+            }
+            /* About / Contact Toggle */
+            
+            .about-contain {
+                margin-top: 5px;
+                font-size: 13px;
+                color: #aaa;
+            }
+            
+            .contact-number {
+                font-size: 13px;
+                color: #aaa;
+            }
+            /* Map Frame */
+            
+            .map-frame {
+                display: none;
+                /* Initially hidden */
+                width: 100%;
+                height: 200px;
+            }
+            
+            .map-frame iframe {
+                width: 100%;
+                height: 100%;
+                border: 0;
+                display: block;
+            }
+            
+            .map-frame.active {
+                display: block;
+                width: 100%;
+                height: 200px;
+                /* Adjust as needed */
+            }
+            /* Button Styling */
+            
+            .btn {
+                padding: 8px 15px;
+                background-color: #ff6b6b;
+                color: #fff;
+                border: none;
+                cursor: pointer;
+                font-size: 14px;
+                border-radius: 4px;
+                transition: background 0.3s ease;
+            }
+            
+            .btn:hover {
+                background-color: #ff4757;
+            }
+            /* Responsive Footer */
+            
+            @media (max-width: 768px) {
+                .footer-content-wrapper {
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 30px;
+                }
+                .box {
+                    text-align: center;
+                }
+                .social-icon {
+                    justify-content: center;
+                }
+            }
+        </style>
+    </head>
+
+    <body onload="home()">
+
+        <header style="color: rgb(248, 99, 6);">🍕 Welcome to Foodie's Haven</header>
+
+        <nav class="navbar-wrapper">
+            <nav class="navbar">
+                <a href="#" class="nav-logo">
+                    <btn-nav id="navigateButton" onclick="sign()">Sign in</btn-nav>
+
+                </a>
+
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" id="home" onclick="home()">Home🍔</a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" id="aboutus" onclick="about()">About Us🍟</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" id="menu" onclick="menu()">Menu🍽</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" id="food_galary" onclick="gal()">Gallary🥗</a>
+                    </li>
+                    <li class=" nav-item ">
+                        <a href="# " class="nav-link " id="contact" onclick="contact()">Contact us☎️</a>
+                    </li>
+                </ul>
+            </nav>
         </nav>
-    </nav>
-    <!--header-->
-    <header>
-        <div class="con-img ">
 
-            <div class="img-container-mid">
-                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836 " alt="Delicious Food ">
-                <div class="im ">Delicious Vibes 🍽</div>
-
-            </div>
-
-            <div class="img-container-mid ">
-                <img src="i1.jpg " alt="Favorite fOOds ">
-                <div class="im ">Favorite fOOds</div>
-
-            </div>
-
-            <div class="img-container-mid ">
-                <img src="i2.jpg " alt="Delicious Food ">
-                <div class="im ">Awsome Feeling</div>
-
-            </div>
-
-            <div class="img-container-mid ">
-                <img src="i4.jpg " alt="Delicious Food ">
-                <div class="im ">FoodieHub</div>
-
-            </div>
-
-
-
-
-
-        </div>
-        </div>
-
-        <div class="cts" style="display: flex;flex-wrap: wrap;padding: 40px;gap: 100px;align-items: center;justify-content: center;">
-
-            <div class="container-desc-left">
-                <h2 style="color: #f1ee08;background-color: transparent;border: 1px solid rgb(236, 73, 13);font-size: 16px;font-weight: 80-align: center;">prerequisites</h2>
-                <button onclick="toggleDescription()">Show Description</button>
-
-                <div id="descriptionBox" class="description">
-                    <p>Business and legal prerequisites Business plan: Develop a comprehensive business plan that includes your market research, target audience, and unique selling proposition. Licenses and registrations: Secure all necessary business licenses
-                        and food safety registrations, such as an FSSAI license in India, which is mandatory for both the platform and the restaurants it hosts. Restaurant partnerships: Establish partnerships with restaurants that have their own food
-                        safety compliance.
-                    </p>
+        <!-- ===== MENU SECTION ===== -->
+        <section id="menuSection">
+            <h2>Our Menu</h2>
+            <div class="menu-container">
+                <div class="menu-item">
+                    <img src="s12.jpg" alt="Pizza Margherita">
+                    <h3>Pizza Margherita</h3>
+                    <p>Classic tomato and mozzarella goodness</p>
+                    <h4>₹299</h4>
+                    <button onclick="addToCart('Pizza Margherita', 299)">Add to Cart</button>
                 </div>
-            </div>
+                <div class="menu-item">
+                    <img src="s13.jpg" alt="Cheesy Burst Pizza">
+                    <h3>Cheesy Burst Pizza</h3>
+                    <p>Loaded with creamy melted cheese</p>
+                    <h4>₹349</h4>
+                    <button onclick="addToCart('Cheesy Burst Pizza', 349)">Add to Cart</button>
+                </div>
+                <div class="menu-item">
+                    <img src="s14.jpg" alt="Veggie Delight">
+                    <h3>Veggie Delight</h3>
+                    <p>Fresh vegetables on a crispy base</p>
+                    <h4>₹279</h4>
+                    <button onclick="addToCart('Veggie Delight', 279)">Add to Cart</button>
+                </div>
+                <div class="menu-item">
+                    <img src="s13.jpg" alt="Cheesy Burst Pizza">
+                    <h3>Cheesy Burst Pizza</h3>
+                    <p>Loaded with creamy melted cheese</p>
+                    <h4>₹349</h4>
+                    <button onclick="addToCart('Cheesy Burst Pizza', 349)">Add to Cart</button>
+                </div>
+                <div class="menu-item">
+                    <img src="s14.jpg" alt="Veggie Delight">
+                    <h3>Veggie Delight</h3>
+                    <p>Fresh vegetables on a crispy base</p>
+                    <h4>₹279</h4>
+                    <button onclick="addToCart('Veggie Delight', 279)">Add to Cart</button>
+                </div>
 
-            <div class="con-right">
-                <img src="b1.jpg " alt=" " style="border-radius: 20px; box-shadow: 2px 2px 5px 3px#e56f08;">
 
             </div>
 
 
-            <div class="container-desc-right">
-                <h2 style="color: #f1ee08;background-color: transparent;border: 1px solid rgb(236, 73, 13);font-size: 16px;font-weight: 80-align: center;">Requisites</h2>
-                <button class="btn" onclick="toggleDescription_right()">Click Me✅</button>
-
-                <div id="descriptionBox2" class="description2">
-                    <p>This is a sample product description. It appears when you click the button and disappears when clicked again.</p>
-                </div>
             </div>
-        </div>
+        </section>
 
 
-
-
-
-        </div>
-
-        <div class="button-container">
-            <button class="order-btn" onclick="func() "><span>Order Now</span></button>
-        </div>
-        <!--      <div class="span-con">
-            <span>T</span>
-            <span>H</span>
-            <span>A</span>
-
-            <span>N</span>
-            <span>K</span>
-            <span>S</span>
-            <span></span>
-
-            <span>F</span>
-            <span>O</span>
-            <span>R</span>
-            <span></span>
-
-            <span>W</span>
-            <span>A</span>
-            <span>T</span>
-            <span>C</span>
-            <span>H</span>
-            <span>I</span>
-            <span>N</span>
-            <span>G</span>
-
-
-        </div>--->
-    </header>
-
-    <!---menu section-->
-
-    <section class="menu" id="menu">
-
-
-        <h2 style="color: aliceblue;border-radius: 10px;border: 2px solid goldenro-align: center;margin: 0 22px;">List Items</h2>
-
-        <div class="container" id="open_menu" style="padding: 0px 15px;">
-
-            <div class="food-list" style="color: blue;">
-                <div class="food-item">
-                    <img src="1.jpg" alt="Burger" />
-                    <h3>Cheese Burger</h3>
-                    <p style="color: lightgreen;">₹150</p>
-                    <button class="cart-btn" onclick="addToCart('Cheese Burger', 150)">Add to Cart</button>
-                </div>
-
-                <div class="food-item">
-                    <img src="2.jpg" alt="Pizza" />
-                    <h3>Margherita Pizza</h3>
-                    <p style="color: lightgreen;">₹220</p>
-                    <button class="cart-btn" onclick="addToCart('Margherita Pizza', 220)">Add to Cart</button>
-                </div>
-
-                <div class="food-item">
-                    <img src="3.jpg" alt="Pasta" />
-                    <h3>White Sauce Pasta</h3>
-                    <p style="color: lightgreen;">₹180</p>
-                    <button class="cart-btn" onclick="addToCart('White Sauce Pasta', 180)">Add to Cart</button>
-                </div>
-
-                <div class="food-item">
-                    <img src="3.jpg" alt="Momo" />
-                    <h3>Chicken Momo</h3>
-                    <p style="color: lightgreen;">₹250</p>
-                    <button onclick="addToCart('Chicken Momo', 250)">Add to Cart</button>
-                </div>
-
-                <div class="food-item">
-                    <img src="3.jpg" alt="Chicken-Manchurian" />
-                    <h3>Chicken-Manchurian</h3>
-                    <p style="color: lightgreen;">₹200</p>
-                    <button onclick="addToCart('Chicken-Manchurian', 200)">Add to Cart</button>
-                </div>
-
-                <div class="food-item">
-                    <img src="3.jpg" alt="Fried Rice" />
-                    <h3>Fried Rice</h3>
-                    <p style="color: lightgreen;">₹300</p>
-                    <button class="cart-btn" onclick="addToCart('Fried Rice', 300)">Add to Cart</button>
-                </div>
-
-                <div class="food-item">
-                    <img src="3.jpg" alt="Fried Rice" />
-                    <h3>Fried Rice</h3>
-                    <p style="color: lightgreen;">₹300</p>
-                    <button class="cart-btn" onclick="addToCart('Fried Rice', 300)">Add to Cart</button>
-                </div>
-                <div class="food-item">
-                    <img src="3.jpg" alt="Fried Rice" />
-                    <h3>Fried Rice</h3>
-                    <p style="color: lightgreen;">₹300</p>
-                    <button class="cart-btn" onclick="addToCart('Fried Rice', 300)">Add to Cart</button>
-                </div>
-
-            </div>
-        </div>
-        <div class="b2" style="padding: 20px;">
-            <button id="toggleCart">🛒 View Cart</button>
-        </div>
-
-        <div class="cart" id="cart">
-            <h3 style="color: aliceblue;font-size: 20px;font-weight: 900; ">Your Cart</h3>
-
+        <!-- ===== CART SECTION ===== -->
+        <div id="cart">
+            <h3>Your Cart</h3>
             <div id="cart-items"></div>
-            <p class="total" id="total" style="font-size: larger;font-weight: 600;color: #f1ee08; ">Total: ₹0</p>
-
+            <div id="total">Total: ₹0</div>
         </div>
-    </section>
+        <button id="toggleCart">🛒 Cart</button>
 
+        <!---slider-->
+        <!--testimonial-->
+        <section class="testimonial">
+            <div class="container-testimonial ">
+                <div class="testimonial-heading ">
+                    <h2 style="color: #131212; ">What Our Clients Say</h2>
+                    <p style="color: rgb(237, 230, 237); font-size: 18px"><strong>Best place to get breakfast! I had eggs mulligan, the homemade corned beef is to die for! My love had potato pancakes which he thoroughly enjoyed too! Waitress was vibrant and attentive. – Heather S.</strong></p>
+                </div>
 
+                <div class="testimonial-box-wrapper ">
 
-    <!--testimonial-->
-    <section class="testimonial">
-        <div class="container-testimonial ">
-            <div class="testimonial-heading ">
-                <h2 style="color: #e56f08; ">What Our Clients Say</h2>
-                <p style="color: rgb(237, 230, 237); font-size: 18px"><strong>Best place to get breakfast! I had eggs mulligan, the homemade corned beef is to die for! My love had potato pancakes which he thoroughly enjoyed too! Waitress was vibrant and attentive. – Heather S.</strong></p>
-            </div>
-
-            <div class="testimonial-box-wrapper ">
-
-                <div class="testimonial-box active ">
-                    <div class="reviewer-info ">
-                        <img src="m1.jpg " alt="Purnendu Ghosh ">
-                        <div>
-                            <h4>Purnendu Ghosh</h4>
-                            <p>24 May, 2020</p>
+                    <div class="testimonial-box active ">
+                        <div class="reviewer-info ">
+                            <img src="m1.jpg " alt="Purnendu Ghosh ">
+                            <div>
+                                <h4>Purnendu Ghosh</h4>
+                                <p>24 May, 2020</p>
+                            </div>
                         </div>
+                        <ul class="rating ">
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-solid fa-star "></i></li>
+                        </ul>
+                        <p class="revie ">“Very good choice for breakfast. The homemade hash is a must. A good variety of choices for all tastes..”</p>
                     </div>
-                    <ul class="rating ">
-                        <li><i class="fa-solid fa-star "></i></li>
-                        <li><i class="fa-solid fa-star "></i></li>
-                        <li><i class="fa-solid fa-star "></i></li>
-                        <li><i class="fa-solid fa-star "></i></li>
-                        <li><i class="fa-solid fa-star "></i></li>
-                    </ul>
-                    <p class="revie ">“Very good choice for breakfast. The homemade hash is a must. A good variety of choices for all tastes..”</p>
-                </div>
 
-                <div class="testimonial-box ">
-                    <div class="reviewer-info ">
-                        <img src="m3.jpg " alt="Susovon Bera ">
-                        <div>
-                            <h4>Susovon Bera</h4>
-                            <p>10 Aug, 2021</p>
+
+                    <div class="testimonial-box ">
+                        <div class="reviewer-info ">
+                            <img src="m2.jpg " alt="Kartik Chakraborty ">
+                            <div>
+                                <h4>Kartik Chakraborty</h4>
+                                <p>10 Aug, 2021</p>
+                            </div>
                         </div>
+                        <ul class="rating ">
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-solid fa-star-half-stroke "></i></li>
+                        </ul>
+                        <p class="revie ">“The eggs benedict with fried green tomatoes was a risk worth taking! Side fruit cup was super fresh and the service was excellent… ”</p>
                     </div>
-                    <ul class="rating ">
-                        <li><i class="fa-solid fa-star "></i></li>
-                        <li><i class="fa-solid fa-star "></i></li>
-                        <li><i class="fa-solid fa-star "></i></li>
-                        <li><i class="fa-solid fa-star "></i></li>
-                        <li><i class="fa-solid fa-star-half-stroke "></i></li>
-                    </ul>
-                    <p class="revie ">“The eggs benedict with fried green tomatoes was a risk worth taking! Side fruit cup was super fresh and the service was excellent… ”</p>
-                </div>
-
-
-
-                <div class="testimonial-box ">
-                    <div class="reviewer-info ">
-                        <img src="m2.jpg " alt="Kartik Chakraborty ">
-                        <div>
-                            <h4>Kartik Chakraborty</h4>
-                            <p>10 Aug, 2021</p>
+                    <div class="testimonial-box ">
+                        <div class="reviewer-info ">
+                            <img src="m4.jpg " alt="Anewsa Biswas ">
+                            <div>
+                                <h4>Anewsa Biswas</h4>
+                                <p>02 Feb, 2022</p>
+                            </div>
                         </div>
+                        <ul class="rating ">
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-regular fa-star "></i></li>
+                        </ul>
+                        <p class="revie ">“I highly recommend the blueberry crunch pancakes!… – Whistle R”</p>
                     </div>
-                    <ul class="rating ">
-                        <li><i class="fa-solid fa-star "></i></li>
-                        <li><i class="fa-solid fa-star "></i></li>
-                        <li><i class="fa-solid fa-star "></i></li>
-                        <li><i class="fa-solid fa-star "></i></li>
-                        <li><i class="fa-solid fa-star-half-stroke "></i></li>
-                    </ul>
-                    <p class="revie ">“The eggs benedict with fried green tomatoes was a risk worth taking! Side fruit cup was super fresh and the service was excellent… ”</p>
-                </div>
-                <div class="testimonial-box ">
-                    <div class="reviewer-info ">
-                        <img src="m4.jpg " alt="Anewsa Biswas ">
-                        <div>
-                            <h4>Anewsa Biswas</h4>
-                            <p>02 Feb, 2022</p>
+
+                    <div class="testimonial-box ">
+                        <div class="reviewer-info ">
+                            <img src="m5.jpg " alt="Swastika Bisal ">
+                            <div>
+                                <h4>Swastika Bisal</h4>
+                                <p>02 Feb, 2022</p>
+                            </div>
                         </div>
+                        <ul class="rating ">
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-regular fa-star "></i></li>
+                        </ul>
+                        <p class="revie ">“Quis malesuada vitae elit eu sit proin amet. Ullamcorper quis quam enim tortor, id sed vestibulum egestas.”</p>
                     </div>
-                    <ul class="rating ">
-                        <li><i class="fa-solid fa-star "></i></li>
-                        <li><i class="fa-solid fa-star "></i></li>
-                        <li><i class="fa-solid fa-star "></i></li>
-                        <li><i class="fa-solid fa-star "></i></li>
-                        <li><i class="fa-regular fa-star "></i></li>
-                    </ul>
-                    <p class="revie ">“I highly recommend the blueberry crunch pancakes!… – Whistle R”</p>
-                </div>
 
-                <div class="testimonial-box ">
-                    <div class="reviewer-info ">
-                        <img src="m5.jpg " alt="Swastika Bisal ">
-                        <div>
-                            <h4>Swastika Bisal</h4>
-                            <p>02 Feb, 2022</p>
-                        </div>
+                    <!-- Slider arrows -->
+
+
+                </div>
+                <div class="arrow-wrapper">
+                    <div class="arrow prev"><i class="fa-solid fa-arrow-left"></i></div>
+                    <div class="arrow next"><i class="fa-solid fa-arrow-right"></i></div>
+                </div>
+            </div>
+        </section>
+
+        <!---sliders-->
+        <div class="slider">
+            <div class="slides" style="background-color: #1c1b1a;">
+
+
+                <div class="slide">
+                    <video src="v2.mp4" autoplay loop muted></video>
+                    <div class="desc">
+                        <h2>Delicious Dishes</h2>
+                        <p>From Rs 600 to Rs 10,000.</p>
                     </div>
-                    <ul class="rating ">
-                        <li><i class="fa-solid fa-star "></i></li>
-                        <li><i class="fa-solid fa-star "></i></li>
-                        <li><i class="fa-solid fa-star "></i></li>
-                        <li><i class="fa-solid fa-star "></i></li>
-                        <li><i class="fa-regular fa-star "></i></li>
-                    </ul>
-                    <p class="revie ">“Quis malesuada vitae elit eu sit proin amet. Ullamcorper quis quam enim tortor, id sed vestibulum egestas.”</p>
                 </div>
 
-                <!-- Slider arrows -->
-                <div class="arrow-wrapper ">
-                    <div class="arrow prev "><i class="fa-solid fa-arrow-left "></i></div>
-                    <div class="arrow next "><i class="fa-solid fa-arrow-right "></i></div>
+                <div class="slide">
+                    <video src="v3.mp4" autoplay loop muted></video>
+                    <div class="desc">
+                        <h2>Hygiene Maintain</h2>
+                        <p>Hygienic, fresh, and delicious food service.</p>
+                    </div>
                 </div>
 
-            </div>
-        </div>
-    </section>
 
-    <!---sliders-->
-    <div class="slider">
-        <div class="slides">
-            <div class="slide">
-                <video src="v1.mp4 " autoplay=" " loop=" " width="50% " style=; ">
-            </video>
-            <div class="desc ">
-                <h2>Explore Food</h2>
-                <p style="color: aliceblue; ">Discover breathtaking landscapes, lush forests, and the serene beauty of the natural world.</p>
-            </div>
-        </div>
-        <div class="slide ">
-            <video src="v2.mp4 " autoplay=" " loop=" " width="50% " style=; "></video>
-                <div class="desc ">
-                    <h2>Delecious Dishes</h2>
-                    <p style="color: aliceblue; ">From Rs 600$ to Rs 10,000 $.</p>
+
+                <div class="slide">
+                    <video src="v5.mp4" autoplay loop muted></video>
+                    <div class="desc">
+                        <h2>Luxury Experience</h2>
+                        <p>Food crafted with care and perfection.</p>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <video src="v6.mp4" autoplay loop muted></video>
+                    <div class="desc">
+                        <h2>Fresh Ingredients</h2>
+                        <p>Only the best for your plate.</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="slide">
-                <video src="v3.mp4 " autoplay=" " loop=" " width="50% " style=; "></video>
-            <div class="desc ">
-                <h2>Hygine Maintain</h2>
-                <p  style="color: aliceblue; ">Hygenic fresh and delicious food service</p>
-            </div>
+            <div class="nav"></div>
         </div>
 
-        <div class="slide ">
-            <video src="v4.mp4 " autoplay=" " loop=" " width="50% " style= " "></video>
+        <!---footer-->
+        <footer>
+            <div class="container-footer">
+                <div class="footer-content-wrapper" style="display: flex;justify-content: center;align-items: center;padding: 20px;">
 
-                <div class="desc ">
-                    <h2>Hygine Maintain</h2>
-                    <p  style="color: aliceblue; ">Hygenic fresh and delicious food service</p>
-                </div>
-            </div>
-
-
-            <div class="slide ">
-                <video src="v5.mp4 " autoplay=" " loop=" " width="50% " style=" " ></video>
-
-            <div class="desc ">
-                <h2>Hygine Maintain</h2>
-                <p  style="color: aliceblue; ">Hygenic fresh and delicious food service</p>
-            </div>
-        </div>
-
-
-
-        <div class="slide ">
-            <video src="v6.mp4 " autoplay=" " loop=" " width="50% " style=; "></video>
-
-                <div class="desc ">
-                    <h2>Hygine Maintain</h2>
-                    <p style="color: aliceblue; ">Hygenic fresh and delicious food service</p>
-                </div>
-            </div>
-
-
-        </div>
-        <div class="nav " style="margin: 20px 0; "></div>
-    </div>
-
-    <!---footer-->
-    <footer>
-        <div class="container-footer">
-            <div class="footer-content-wrapper" style="display: flex;justify-content: center;align-items: center;padding: 20px;">
-
-                <!-- About / Brand Info -->
-                <div class="box first-box" style="">
-                    <h5 style="font-size: larger;font-weight: 900;color: aquamarine; font-size: larger;">Food Order</h5>
-                    <p style="font-size: larger;">
-                        <summary><strong>
+                    <!-- About / Brand Info -->
+                    <div class="box first-box" style="">
+                        <h5 style="font-size: larger;font-weight: 900;color: aquamarine; font-size: larger;text-align: center;">Food Order</h5>
+                        <p style="font-size: larger;">
+                            <summary><strong>
                             A food order is a request for a specific meal or food item, whether it's a full-course meal or individual items like a sandwich or pizza. The description can be a list of items with specific instructions for preparation and any customizations, often placed
                             through a digital system (like a website or app) for delivery or pickup. The term can also refer to the entire digital system that facilitates this process, automating ordering, payment, and sometimes delivery tracking. Key
                             aspects of a food order Items: </strong>
-                        </summary>
-                    </p>
-                    <ul class="social-icon">
-                        <li><a href="# "><i class="fa-brands fa-facebook "></i></a></li>
-                        <li><a href="# "><i class="fa-brands fa-linkedin-in "></i></a></li>
-                        <li><a href="# "><i class="fa-brands fa-instagram "></i></a></li>
-                        <li><a href="# "><i class="fa-brands fa-twitter "></i></a></li>
-                    </ul>
-                </div>
+                            </summary>
+                        </p>
+                        <ul class="social-icon">
+                            <li><a href="# "><i class="fa-brands fa-facebook "></i></a></li>
+                            <li><a href="# "><i class="fa-brands fa-linkedin-in "></i></a></li>
+                            <li><a href="# "><i class="fa-brands fa-instagram "></i></a></li>
+                            <li><a href="# "><i class="fa-brands fa-twitter "></i></a></li>
+                        </ul>
+                    </div>
 
-                <!-- Resources -->
-                <div class="box box-mid">
-                    <h5 style="font-size: larger;font-weight: 900;color: aquamarine;">Resources</h5>
-                    <ul class="resource-list" style="font-size: 30px;font-weight: 900;color: rgb(210, 224, 11);">
-                        <li><a href="#" style="font-size: 20px;font-weight: 900;color: rgb(217, 217, 211);">Home</a></li>
-                        <li>
-                            <a href="#" id="toggleLink" style="font-size: 20px;font-weight: 900;color: rgb(217, 217, 211);">About Us</a>
+                    <!-- Resources -->
+                    <div class="box box-mid">
+                        <h5 style="font-size: larger;font-weight: 900;color: aquamarine;text-align: center;">Resources</h5>
+                        <ul class="resource-list" style="font-size: 30px;font-weight: 900;color: rgb(210, 224, 11);">
+                            <li><a href="#" style="font-size: 20px;font-weight: 900;color: rgb(217, 217, 211);">Home</a></li>
+                            <li>
+                                <a href="#" id="toggleLink" style="font-size: 20px;font-weight: 900;color: rgb(217, 217, 211);">About Us</a>
 
-                        </li>
-                        <div class="about-contain" id="aboutContain" style="display: none;">
-                            <p>Twenty-four hours at your service; we are located everywhere.</p>
-                        </div>
-                        <li>
-                            <a href=" # " id="toggleContact" style="font-size: 20px;font-weight: 900;color: rgb(217, 217, 211);">Contact Us</a>
-                            <p id="contactNumber" class="contact-number" style="display:none; " style="font-size: 20px;font-weight: 900;color: rgb(185, 185, 103);">9547146725</p>
-                        </li>
-                        <li class="location">
-                            <button class="btn" id="toggleMapBtn" style="font-size: 20px;font-weight: 900;color: rgb(217, 217, 211);">Show Location</button>
-                            <div id="mapFrame" class="map-frame">
-                                <iframe src="https://www.google.com/maps?q=Kolkata&output=embed " allowfullscreen></iframe>
+                            </li>
+                            <div class="about-contain" id="aboutContain" style="display: none;border: 2px solid rgb(240, 110, 11);border-radius: 20px;">
+                                <p>A food web is a graphical representation of interconnected food chains within an ecosystem that shows how energy flows between different organisms when they eat one another. It illustrates complex relationships, with arrows
+                                    pointing from the organism being eaten to the one that eats it. Food webs are made up of different trophic levels: producers (like plants), consumers (herbivores, carnivores, omnivores), and decomposers (like fungi
+                                    and bacteria). </p>
                             </div>
-                        </li>
-                    </ul>
+                            <li>
+                                <a href=" # " id="toggleContact" style="font-size: 20px;font-weight: 900;color: rgb(217, 217, 211);">Contact Us</a>
+                                <p id="contactNumber" class="contact-number" style="display:none; " style="font-size: 20px;font-weight: 900;color: rgb(185, 185, 103);">9547146725</p>
+                            </li>
+                            <li class="location">
+                                <button class="btn" id="toggleMapBtn" style="font-size: 20px;font-weight: 900;color: rgb(217, 217, 211);">Show Location</button>
+                                <div id="mapFrame" class="map-frame">
+                                    <iframe src="https://www.google.com/maps?q=Kolkata&output=embed " allowfullscreen></iframe>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Services -->
+                    <div class="box last-box ">
+                        <h5 style="font-size: larger;font-weight: 900;color: aquamarine;text-align: center; ">Services</h5>
+                        <ul class="services-list ">
+                            <li style="border:2px solid wheat;border-radius: 50px;text-align: center;font-size: larger;font-weight: 700;text-decoration: none; ">Supply Foods</li>
+                            <li style="border:2px solid wheat;border-radius: 50px;text-align: center;font-size: larger;font-weight: 700;text-decoration: none; ">Caustomer Services</li>
+                            <li style="border:2px solid wheat;border-radius: 50px;text-align: center;font-size: larger;font-weight: 700;text-decoration: none; ">Supply Foods in All Occassions</li>
+                            <li style="border:2px solid wheat;border-radius: 50px;text-align: center;font-size: larger;font-weight: 700;text-decoration: none; "> Hygenic Foods</li>
+
+                        </ul>
+                    </div>
+
                 </div>
-
-                <!-- Services -->
-                <div class="box last-box ">
-                    <h5 style="font-size: larger;font-weight: 900;color: aquamarine; ">Services</h5>
-                    <ul class="services-list ">
-                        <li style="border:2px solid wheat;border-radius: 50px;text-align: center;font-size: larger;font-weight: 700;text-decoration: none; ">Supply Foods</li>
-                        <li style="border:2px solid wheat;border-radius: 50px;text-align: center;font-size: larger;font-weight: 700;text-decoration: none; ">Caustomer Services</li>
-                        <li style="border:2px solid wheat;border-radius: 50px;text-align: center;font-size: larger;font-weight: 700;text-decoration: none; ">Supply Foods in All Occassions</li>
-                        <li style="border:2px solid wheat;border-radius: 50px;text-align: center;font-size: larger;font-weight: 700;text-decoration: none; "> Hygenic Foods</li>
-
-                    </ul>
-                </div>
-
             </div>
-        </div>
-    </footer>
+        </footer>
 
 
-    <script>
-        // Function to toggle the first description
-    </script>
+        <script>
+            // ===== ALERTS =====
+            function home() {
+                alert("Welcome to our website");
+            }
+
+            // ===== NAVIGATION BUTTONS =====
+            document.addEventListener("DOMContentLoaded", function() {
+                const navigateButton = document.getElementById("navigateButton");
+                const food_galary = document.getElementById("food_galary");
+                const aboutus = document.getElementById("aboutus");
+                const contact = document.getElementById("contact");
+
+                if (navigateButton) {
+                    navigateButton.onclick = function() {
+                        window.location.href = "pp.html";
+                    };
+                }
+
+                if (food_galary) {
+                    food_galary.onclick = function() {
+                        window.location.href = "gallary.html";
+                    };
+                }
+
+                if (aboutus) {
+                    aboutus.onclick = function() {
+                        window.location.href = "aboutus.html";
+                    };
+                }
+                if (menu) {
+                    menu.onclick = function() {
+                        window.location.href = "menu.html";
+                    }
+                }
+
+                if (contact) {
+                    contact.onclick = function() {
+                        window.location.href = "contactus.html";
+                    };
+                }
+            });
 
 
-    <script src=" https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js "></script>
+            // ===== CART LOGIC =====
+            document.addEventListener("DOMContentLoaded", () => {
+                const cart = [];
+                const cartContainer = document.getElementById("cart");
+                const cartItemsContainer = document.getElementById("cart-items");
+                const totalDisplay = document.getElementById("total");
+                const toggleCartBtn = document.getElementById("toggleCart");
 
-</body>
+                window.addToCart = function(name, price) {
+                    const existingItem = cart.find(item => item.name === name);
+                    if (existingItem) existingItem.quantity += 1;
+                    else cart.push({
+                        name,
+                        price,
+                        quantity: 1
+                    });
+                    updateCart();
+                };
+
+                function updateCart() {
+                    cartItemsContainer.innerHTML = "";
+                    let total = 0;
+                    cart.forEach((item, index) => {
+                        const itemDiv = document.createElement("div");
+                        itemDiv.classList.add("cart-item");
+                        itemDiv.innerHTML = `
+        <span>${item.name}</span>
+        <span>₹${item.price} × ${item.quantity}</span>
+        <div class="cart-actions">
+          <button onclick="changeQuantity(${index}, 1)">+</button>
+          <button onclick="changeQuantity(${index}, -1)">-</button>
+          <button onclick="removeItem(${index})">🗑️</button>
+        </div>`;
+                        cartItemsContainer.appendChild(itemDiv);
+                        total += item.price * item.quantity;
+                    });
+                    totalDisplay.textContent = "Total: ₹" + total;
+                }
+
+                window.changeQuantity = function(index, change) {
+                    cart[index].quantity += change;
+                    if (cart[index].quantity <= 0) cart.splice(index, 1);
+                    updateCart();
+                };
+                window.removeItem = function(index) {
+                    cart.splice(index, 1);
+                    updateCart();
+                };
+
+                toggleCartBtn.addEventListener("click", () => cartContainer.classList.toggle("active"));
+            });
+
+            // ===== TESTIMONIAL SLIDER =====
+            document.addEventListener('DOMContentLoaded', () => {
+                const testimonials = document.querySelectorAll('.testimonial-box');
+                const nextBtn = document.querySelector('.arrow.next');
+                const prevBtn = document.querySelector('.arrow.prev');
+                let current = 0;
+                let interval;
+
+                function showTestimonial(index) {
+                    testimonials.forEach((t, i) => t.classList.toggle('active', i === index));
+                }
+
+                function nextTestimonial() {
+                    current = (current + 1) % testimonials.length;
+                    showTestimonial(current);
+                }
+
+                function prevTestimonial() {
+                    current = (current - 1 + testimonials.length) % testimonials.length;
+                    showTestimonial(current);
+                }
+
+                nextBtn.addEventListener('click', () => {
+                    nextTestimonial();
+                    resetInterval();
+                });
+                prevBtn.addEventListener('click', () => {
+                    prevTestimonial();
+                    resetInterval();
+                });
+
+                function startAutoSlide() {
+                    interval = setInterval(nextTestimonial, 5000);
+                }
+
+                function resetInterval() {
+                    clearInterval(interval);
+                    startAutoSlide();
+                }
+
+                const container = document.querySelector('.testimonial-box-wrapper');
+                container.addEventListener('mouseenter', () => clearInterval(interval));
+                container.addEventListener('mouseleave', startAutoSlide);
+
+                showTestimonial(current);
+                startAutoSlide();
+            });
+
+            const slides = document.querySelectorAll('.slide');
+            const nav = document.querySelector('.nav');
+            let current = 0;
+
+            // Create navigation dots
+            slides.forEach((_, i) => {
+                const dot = document.createElement('span');
+                dot.classList.add('dot');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => showSlide(i));
+                nav.appendChild(dot);
+            });
+
+            const dots = document.querySelectorAll('.dot');
+
+            function showSlide(index) {
+                slides[current].classList.remove('active');
+                dots[current].classList.remove('active');
+                current = index;
+                slides[current].classList.add('active');
+                dots[current].classList.add('active');
+            }
+
+            // Auto Slide every 5s
+            setInterval(() => {
+                let next = (current + 1) % slides.length;
+                showSlide(next);
+            }, 5000);
+
+            document.addEventListener("DOMContentLoaded", function() {
+                // Show text
+                function showtext() {
+                    document.getElementById("text").style.display = "block";
+                }
+
+                // Toggle About section
+                document.getElementById("toggleLink").addEventListener("click", function(e) {
+                    e.preventDefault();
+                    const about = document.getElementById("aboutContain");
+                    about.style.display = about.style.display === "block" ? "none" : "block";
+                });
+                /*contact*/
+                document.getElementById("toggleContact").addEventListener("click", function(e) {
+                    e.preventDefault();
+                    const number = document.getElementById("contactNumber");
+                    number.style.display = number.style.display === "block" ? "none" : "block";
+                });
 
 
-<footer>
+                const toggleBtn = document.getElementById("toggleMapBtn");
+                const mapFrame = document.getElementById("mapFrame");
 
+                toggleBtn.addEventListener("click", () => {
+                    if (mapFrame.style.display === "none" || mapFrame.style.display === " ") {
+                        mapFrame.style.display = "block";
+                        toggleBtn.textContent = "Hide Location";
+                    } else {
+                        mapFrame.style.display = "none";
+                        toggleBtn.textContent = "Show Location";
+                    }
+                });
 
-</html>
+            });
+        </script>
+
+    </body>
+
+    </html>
